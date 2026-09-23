@@ -71,6 +71,23 @@ class ContentIntegrityTests(unittest.TestCase):
                     self.assertTrue(resolved.is_relative_to(docs_root))
                     self.assertTrue(resolved.is_file())
 
+    def test_local_links_resolve_to_source_files(self):
+        pattern = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
+        for path in public_markdown_files():
+            text = path.read_text(encoding="utf-8")
+            for raw_target in pattern.findall(text):
+                target = raw_target.strip()
+                if target.startswith("<") and ">" in target:
+                    target = target[1 : target.index(">")]
+                else:
+                    target = target.split(" ", 1)[0]
+                if target.startswith(("http://", "https://", "mailto:", "#")):
+                    continue
+                target = target.split("#", 1)[0]
+                resolved = (path.parent / target).resolve()
+                with self.subTest(path=path, target=target):
+                    self.assertTrue(resolved.is_file())
+
 
 if __name__ == "__main__":
     unittest.main()
