@@ -40,6 +40,7 @@ class ContentIntegrityTests(unittest.TestCase):
 
     def test_project_docs_are_excluded_from_site(self):
         site = ROOT / "site"
+        self.assertTrue(site.is_dir(), "Run mkdocs build --strict before content tests")
         self.assertFalse((site / "superpowers").exists())
 
     def test_expected_notes_were_migrated(self):

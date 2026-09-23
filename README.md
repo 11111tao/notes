@@ -20,8 +20,8 @@ python3 -m venv .venv
 ## 发布前检查
 
 ```bash
-.venv/bin/python -m unittest tests/test_content_integrity.py -v
 .venv/bin/mkdocs build --strict
+.venv/bin/python -m unittest tests/test_content_integrity.py -v
 ```
 
 推送到 `main` 后，GitHub Actions 会自动发布站点。

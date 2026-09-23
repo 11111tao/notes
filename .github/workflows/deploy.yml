@@ -31,10 +31,10 @@ jobs:
           cache: pip
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Test content
-        run: python -m unittest tests/test_content_integrity.py -v
       - name: Build site
         run: mkdocs build --strict
+      - name: Test content and build output
+        run: python -m unittest tests/test_content_integrity.py -v
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
