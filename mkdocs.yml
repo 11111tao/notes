@@ -1,0 +1,81 @@
+site_name: 易涛的知识库
+site_description: 易涛关于人工智能、科研与持续学习的公开笔记
+site_url: https://11111tao.github.io/notes/
+repo_url: https://github.com/11111tao/notes
+repo_name: 11111tao/notes
+edit_uri: edit/main/docs/
+
+exclude_docs: |
+  superpowers/
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.path
+    - navigation.indexes
+    - navigation.footer
+    - content.code.copy
+    - search.highlight
+    - search.share
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换至深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换至浅色模式
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+  - typeset
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  social:
+    - icon: fontawesome/solid/house
+      link: https://11111tao.github.io/
+      name: 个人主页
+    - icon: fontawesome/brands/github
+      link: https://github.com/11111tao
+      name: GitHub
