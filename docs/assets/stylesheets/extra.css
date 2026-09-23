@@ -1,3 +1,13 @@
 :root {
   --notes-card-radius: 0.75rem;
 }
+
+.md-typeset .grid.cards > ul > li {
+  border-radius: var(--notes-card-radius);
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--md-accent-fg-color);
+  transform: translateY(-2px);
+}

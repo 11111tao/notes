@@ -26,6 +26,22 @@ def public_markdown_files():
 
 
 class ContentIntegrityTests(unittest.TestCase):
+    def test_topic_indexes_exist(self):
+        topic_indexes = [
+            "AI/index.md",
+            "Bai Lab/index.md",
+            "Physical Intelligence/index.md",
+            "TDP Dataset/index.md",
+            "Crypto/index.md",
+        ]
+        for relative_path in topic_indexes:
+            with self.subTest(relative_path=relative_path):
+                self.assertTrue((DOCS / relative_path).is_file())
+
+    def test_project_docs_are_excluded_from_site(self):
+        site = ROOT / "site"
+        self.assertFalse((site / "superpowers").exists())
+
     def test_expected_notes_were_migrated(self):
         actual = {str(path.relative_to(DOCS)) for path in public_markdown_files()}
         self.assertTrue(EXPECTED_PAGES <= actual)
