@@ -6,14 +6,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 EXPECTED_PAGES = {
-    "AI/Frameworks/cnn.md",
-    "AI/Harness/how-agents-work.md",
-    "AI/RSI/recursive-self-improvement.md",
-    "Bai Lab/meeting-0920.md",
-    "Bai Lab/mission-001-read-articles.md",
-    "Crypto/diary-001.md",
-    "Physical Intelligence/pi0.md",
-    "TDP Dataset/0902-report-preparation.md",
+    "Concepts/machine-learning/cnn.md",
+    "Concepts/agents/how-agents-work.md",
+    "Concepts/agents/recursive-self-improvement.md",
+    "Papers/machine-learning-driven-impact-resistance.md",
+    "Papers/machine-learning-enabled-materials-design.md",
 }
 
 
@@ -28,11 +25,12 @@ def public_markdown_files():
 class ContentIntegrityTests(unittest.TestCase):
     def test_topic_indexes_exist(self):
         topic_indexes = [
-            "AI/index.md",
-            "Bai Lab/index.md",
-            "Physical Intelligence/index.md",
-            "TDP Dataset/index.md",
-            "Crypto/index.md",
+            "PhD Journey/index.md",
+            "Courses/index.md",
+            "Courses/chemical-engineering-mathematics/index.md",
+            "Papers/index.md",
+            "Concepts/index.md",
+            "Tools/index.md",
         ]
         for relative_path in topic_indexes:
             with self.subTest(relative_path=relative_path):
@@ -46,6 +44,19 @@ class ContentIntegrityTests(unittest.TestCase):
     def test_expected_notes_were_migrated(self):
         actual = {path.relative_to(DOCS).as_posix() for path in public_markdown_files()}
         self.assertTrue(EXPECTED_PAGES <= actual)
+
+    def test_retired_public_sections_absent(self):
+        for section in ("AI", "Bai Lab", "TDP Dataset", "Physical Intelligence", "Crypto"):
+            with self.subTest(section=section):
+                self.assertFalse((DOCS / section).exists())
+                self.assertFalse((ROOT / "site" / section).exists())
+
+    def test_public_boundary(self):
+        for path in public_markdown_files():
+            with self.subTest(path=path):
+                content = path.read_text(encoding="utf-8")
+                self.assertNotIn("# Bai Lab Meeting", content)
+                self.assertNotIn("Kai Li's focus", content)
 
     def test_homepage_icons_render_as_svg(self):
         home = (ROOT / "site" / "index.html").read_text(encoding="utf-8")

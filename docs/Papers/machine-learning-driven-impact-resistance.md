@@ -1,6 +1,4 @@
-# Mission 001 — Read Articles
-
-## Machine learning-driven optimization of highvelocity impact resistance for three-dimensional biphasic composites
+# Machine learning-driven optimization of highvelocity impact resistance for three-dimensional biphasic composites
 Bu, L., Wang, P., Hao, S. _et al._ Machine learning-driven optimization of high-velocity impact resistance for three-dimensional biphasic composites. _Nat Commun_ **17**, 9819 (2026). https://doi.org/10.1038/s41467-026-76632-y
 
 ### 背景
@@ -44,15 +42,3 @@ FEM 批量模拟随机结构
       ↓
 训练 CNN
 ```
-
-
-
-
-
-
-
-
-
-
-## Machine learning-enabled constrained multiobjective design of architected materials
-Peng, B., Wei, Y., Qin, Y. _et al._ Machine learning-enabled constrained multi-objective design of architected materials. _Nat Commun_ **14**, 6630 (2023). https://doi.org/10.1038/s41467-023-42415-y

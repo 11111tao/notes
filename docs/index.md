@@ -1,6 +1,6 @@
-# 易涛的知识库
+# 易涛的博士笔记
 
-这里记录我在人工智能、科研与持续学习中的理解与实践。
+这里记录从博零到毕业的学习过程：课程、论文、概念、工具，以及每个阶段的计划与回顾。站点只收录可以公开分享的内容。
 
 [返回个人主页](https://11111tao.github.io/){ .md-button .md-button--primary }
 
@@ -8,44 +8,44 @@
 
 <div class="grid cards" markdown>
 
--   :material-brain: **人工智能**
+-   :material-calendar-month: **PhD Journey**
 
     ---
 
-    记录神经网络、智能体工作机制与递归自我改进等主题。
+    学期计划、月度回顾和阶段总结。
 
-    [进入人工智能笔记](AI/index.md)
+    [查看博士旅程](<PhD Journey/index.md>)
 
--   :material-flask: **Bai Lab**
-
-    ---
-
-    实验室会议、研究任务与论文阅读记录。
-
-    [进入实验室笔记](<Bai Lab/index.md>)
-
--   :material-robot: **Physical Intelligence**
+-   :material-school: **Courses**
 
     ---
 
-    关于具身智能、机器人学习与现实世界交互的笔记。
+    从化工数学开始，整理课程中的概念、推导和习题。
 
-    [进入具身智能笔记](<Physical Intelligence/index.md>)
+    [查看课程笔记](Courses/index.md)
 
--   :material-database: **TDP Dataset**
-
-    ---
-
-    围绕材料数据、机器学习与汇报准备的研究记录。
-
-    [进入数据集笔记](<TDP Dataset/index.md>)
-
--   :material-currency-btc: **Crypto**
+-   :material-file-document-outline: **Papers**
 
     ---
 
-    对货币、区块链与加密生态的学习记录。
+    阅读已公开论文，记录问题、方法和自己的理解。
 
-    [进入 Crypto 笔记](Crypto/index.md)
+    [查看论文笔记](Papers/index.md)
+
+-   :material-lightbulb-outline: **Concepts**
+
+    ---
+
+    整理机器学习、智能体等需要反复查阅的知识。
+
+    [查看概念笔记](Concepts/index.md)
+
+-   :material-tools: **Tools**
+
+    ---
+
+    记录软件、编程环境和研究工作流的使用经验。
+
+    [查看工具笔记](Tools/index.md)
 
 </div>
