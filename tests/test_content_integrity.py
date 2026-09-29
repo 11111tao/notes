@@ -44,8 +44,15 @@ class ContentIntegrityTests(unittest.TestCase):
         self.assertFalse((site / "superpowers").exists())
 
     def test_expected_notes_were_migrated(self):
-        actual = {str(path.relative_to(DOCS)) for path in public_markdown_files()}
+        actual = {path.relative_to(DOCS).as_posix() for path in public_markdown_files()}
         self.assertTrue(EXPECTED_PAGES <= actual)
+
+    def test_homepage_icons_render_as_svg(self):
+        home = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+        cards = re.search(r'<div class="grid cards">(.*?)</div>', home, re.DOTALL)
+        self.assertIsNotNone(cards)
+        self.assertIn('class="twemoji"', cards.group(1))
+        self.assertNotRegex(cards.group(1), r":material-[\w-]+:")
 
     def test_every_public_page_has_h1(self):
         for path in public_markdown_files():
